@@ -1,0 +1,1 @@
+#define greeting "hello there!\n\r"

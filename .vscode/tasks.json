@@ -1,0 +1,46 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate makefile",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/tools/pymake.py",
+                "-s../src",
+                "-b../build",
+                "-o../out/a.out"
+            ],
+            "problemMatcher":"$gcc",
+            "options": {
+                "cwd": "./tools"
+            }
+        },
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "make",
+            "problemMatcher":"$gcc",
+            "options": {
+                "cwd": "./tools"
+            }
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "run"
+            ],
+            "options": {
+                "cwd": "./tools"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
